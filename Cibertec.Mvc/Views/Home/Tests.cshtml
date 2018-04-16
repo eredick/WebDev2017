@@ -1,0 +1,98 @@
+﻿
+@{
+    ViewBag.Title = "Tests";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Tests</h2>
+
+<a>arturo@balbin.com</a>
+
+<p>arturo@balbin.com</p>
+
+<p>@@balbin.com</p>
+
+@{
+    @: cualquier texto
+}
+
+<p>@DateTime.Now.Year</p>
+
+<p>Hace una semana fue: @(DateTime.Now - TimeSpan.FromDays(7))</p>
+
+@{
+    var fecha = DateTime.Now - TimeSpan.FromDays(7);
+}
+
+<p>Hace una semana fue: @fecha</p>
+
+@{
+    var persona = new { Nombre = "Arturo", ApellidoPaterno = "Balbin" };
+}
+
+<p>Nombre: @persona.Nombre</p>
+
+@("<span>Hola</span>")
+<br />
+@Html.Raw("<span>Hola</span>")
+<br />
+@{
+    var gente = new[]
+    {
+new {Nombre = "Arturo", ApellidoPaterno = "Balbin"},
+new {Nombre = "Arturo1", ApellidoPaterno = "Balbin1"},
+new {Nombre = "Arturo2", ApellidoPaterno = "Balbin2"},
+new {Nombre = "Arturo3", ApellidoPaterno = "Balbin3"}
+};
+}
+
+@foreach (var pers in gente)
+{
+    @: Nombre: @pers.Nombre
+    @: - Apellido Paterno: @pers.ApellidoPaterno
+    <br />
+}
+
+@for (int i = 0; i < gente.Length; i++)
+{
+    var pers = gente[i];
+    <text>
+        Nombre: @pers.Nombre - Apellido Paterno: @pers.ApellidoPaterno
+    </text>
+    <br />
+}
+
+@{
+    var entero = 20;
+}
+
+@switch (entero)
+{
+    case 20:
+        <p>El valor es 20</p>
+        break;
+    default:
+        <p>Otro valor</p>
+        break;
+}
+
+@{Html.BeginForm(); }
+<p>Formulario sin using</p>
+@{Html.EndForm(); }
+
+@using (Html.BeginForm())
+{
+    <p>Formulario con using</p>
+}
+
+@try
+{
+    throw new InvalidOperationException("Hiciste algo inválido");
+}
+catch(Exception ex)
+{
+    <p>Tu excepción es: @ex.Message</p>
+}
+finally{
+    <p>Este es el finally</p>
+}

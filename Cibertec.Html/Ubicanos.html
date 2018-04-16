@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="es-pe">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Ubicanos</title>
+    <link href="css/site.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <a class="headerlogo">
+            <img src="images/logo-cibertec.png" alt="CIBERTEC" />
+        </a>
+        <nav>
+            <ul>
+                <li><a href="Index.html">Inicio</a></li>
+                <li><a href="Registro.html">Registro</a></li>
+                <li><a href="Media.html">Media</a></li>
+                <li><a href="Ubicanos.html">Ubícanos</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <h1>
+            Ubicanos
+        </h1>
+        <p>
+            <button onclick="localizar()">Mostrar mi ubicación</button>
+        </p>
+        <div id="localizacion"></div>
+    </section>
+    <footer>
+        Todos los derechos reservados - 2018
+    </footer>
+    <script type="text/javascript">
+        function localizar() {
+            console.log("Localizar!");
+            var output = document.getElementById("localizacion");
+            if (!navigator.geolocation) {
+                output.innerHTML = "<p>Tu navegador no soporta la geolocalización</p>";
+            }
+            function success(position) {
+                var latitud = position.coords.latitude;
+                var longitud = position.coords.longitude;
+
+                output.innerHTML = '<p>Tu latitud es: ' + latitud + ' - tu longitud es: ' + longitud + '</p>';
+
+                var img = new Image();
+                img.src = 'https://maps.googleapis.com/maps/api/staticmap?center=' + latitud + ',' + longitud + "&zoom=13&size=300x300";
+
+                output.appendChild(img);
+            }
+
+            function error() {
+                output.innerHTML = "No se ha podido detectar tu ubicación";
+            }
+
+            navigator.geolocation.getCurrentPosition(success, error);
+        }
+    </script>
+</body>
+</html>

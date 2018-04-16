@@ -1,0 +1,7 @@
+﻿@helper CorreoView(string correo, string tag) { 
+<a href='mailto:@($"{correo}@mail.com")'>@tag</a>
+    }
+
+@helper CountPageView(int count) { 
+    <span><b>Cantidad de Reg:</b> @count</span>
+    }

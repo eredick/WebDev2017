@@ -1,0 +1,43 @@
+﻿body {
+    background-color: $background-color;
+    margin: 0 5px;
+
+    @include break-point(md) {
+        margin: 0 10px;
+    }
+
+    header {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        background-color: $site-color-black;
+        height: 100px;
+    }
+
+    footer {
+        background-color: $site-color-black;
+        color: $site-color-light;
+        height: 50px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        padding-top: 10px;
+    }
+
+    section{
+        margin-top: 100px;
+    }
+}
+
+.headerlogo{
+    img {
+        float: left;
+        margin-left: 10px;
+        margin-top: 20px;
+        width: 160px;
+        height: auto;
+    }
+}

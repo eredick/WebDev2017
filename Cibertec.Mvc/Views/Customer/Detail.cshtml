@@ -1,0 +1,83 @@
+﻿@model Cibertec.Models.ViewModels.CustomerDetailVM
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detail</h2>
+
+<div>
+    <h4>CustomerDetailVM</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.CompanyName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Customer.CompanyName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.ContactName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Customer.ContactName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.City)
+        </dt>
+        <dd>
+            @Correo.CorreoView(Model.Customer.City, Model.Customer.City)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.Country)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Customer.Country)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.Phone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Customer.Phone)
+        </dd>
+    </dl>
+
+    <h4>Órdenes</h4>
+
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Orders[0].OrderID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Orders[0].OrderDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Orders[0].ShipName)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Orders)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ShipName)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

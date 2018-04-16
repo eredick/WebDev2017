@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="es-pe">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Registro</title>
+    <link href="css/site.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <a class="headerlogo">
+            <img src="images/logo-cibertec.png" alt="CIBERTEC" />
+        </a>
+        <nav>
+            <ul>
+                <li><a href="Index.html">Inicio</a></li>
+                <li><a href="Registro.html">Registro</a></li>
+                <li><a href="Media.html">Media</a></li>
+                <li><a href="Ubicanos.html">Ubícanos</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <h1>
+            Registro
+        </h1>
+        <form action="/" method="post">
+            <p>
+                <label for="precio">Precio:</label>
+                <input type="number" name="precio" step="0.1" />
+            </p>
+            <p>
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" required title="Ingresa un nombre" oninvalid="this.setCustomValidity('¡Este campo es obligatorio!')" oninput="this.setCustomValidity('')" />
+            </p>
+            <p>
+                <label for="codigo">Código:</label>
+                <input type="text" name="codigo" readonly placeholder="C001" />
+            </p>
+            <p>
+                <label for="fecha">Fecha:</label>
+                <input type="date" name="fecha" />
+            </p>
+            <p>
+                <label for="archivos">Archivos</label>
+                <input type="file" name="archivos" multiple />
+            </p>
+            <p>
+                <input type="submit" />
+            </p>
+        </form>
+    </section>
+    <footer>
+        Todos los derechos reservados - 2018
+    </footer>
+</body>
+</html>
