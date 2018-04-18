@@ -15,11 +15,14 @@ namespace Cibertec.Repositories.Dapper.Northwind
             Customers = new CustomerRepository(connectionString);
             Products = new ProductRepository(connectionString);
             Orders = new OrderRepository(connectionString);
+            Users = new UserRepository(connectionString);
         }
         public ICustomerRepository Customers { get; set; }
 
         public IProductRepository Products { get; set; }
 
         public IOrderRepository Orders { get; set; }
+
+        public IUserRepository Users { get; set; }
     }
 }

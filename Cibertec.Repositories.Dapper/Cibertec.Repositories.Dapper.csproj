@@ -51,6 +51,7 @@
     <Compile Include="Northwind\NorthwindUnitOfWork.cs" />
     <Compile Include="Northwind\OrderRepository.cs" />
     <Compile Include="Northwind\ProductRepository.cs" />
+    <Compile Include="Northwind\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
   </ItemGroup>

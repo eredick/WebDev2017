@@ -161,6 +161,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HolaMundoController.cs" />
@@ -223,6 +224,7 @@
     <Content Include="Views\Customer\Edit.cshtml" />
     <Content Include="Views\Customer\Delete.cshtml" />
     <Content Include="Views\Customer\Detail.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
