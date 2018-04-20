@@ -14,6 +14,8 @@ using Cibertec.Repositories.Dapper.Northwind;
 using System.Configuration;
 using log4net;
 using log4net.Core;
+using System.Web.Helpers;
+using System.Security.Claims;
 
 namespace Cibertec.Mvc
 {
@@ -50,6 +52,8 @@ namespace Cibertec.Mvc
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
 
             log4net.Config.XmlConfigurator.Configure();
         }

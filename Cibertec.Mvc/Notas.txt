@@ -1,0 +1,7 @@
+﻿Para Identity agregamos las siguientes librerias (NUGET):
+	Microsoft.Owin.Host.SystemWeb
+	Microsoft.Owin.Security.Cookies
+Agregar Google Incognito para Ejecutar:
+	Ruta del navegador
+	--incognito
+	Nombre Deseado
