@@ -40,5 +40,11 @@ namespace Cibertec.Mvc.Controllers
         {
             return View();
         }
+
+        public ActionResult Unauthorized()
+        {
+            Response.StatusCode = 403;
+            return View();
+        }
     }
 }

@@ -17,6 +17,11 @@ namespace Cibertec.Mvc.Controllers
         }
 
         [AllowAnonymous]
+        public ActionResult Index()
+        {
+            return RedirectToAction("Login", "Account");
+        }
+        [AllowAnonymous]
         public ActionResult Login()
         {
             return View();
