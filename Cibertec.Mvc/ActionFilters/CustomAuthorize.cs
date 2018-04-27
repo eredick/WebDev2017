@@ -9,11 +9,23 @@ namespace Cibertec.Mvc.ActionFilters
 {
     public class CustomAuthorize : AuthorizeAttribute
     {
-        public override void OnAuthorization(AuthorizationContext filterContext)
+        //public override void OnAuthorization(AuthorizationContext filterContext)
+        //{
+        //    if (this.AuthorizeCore(filterContext.HttpContext))
+        //    {
+        //        base.OnAuthorization(filterContext);
+        //    }
+        //    else
+        //    {
+        //        filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { Controller = "Home", Action = "Unauthorized" }));
+        //    }
+        //}
+
+        protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
         {
-            if (this.AuthorizeCore(filterContext.HttpContext))
+            if (!filterContext.HttpContext.User.Identity.IsAuthenticated)
             {
-                base.OnAuthorization(filterContext);
+                filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { Controller = "Account", action = "Login" }));
             }
             else
             {

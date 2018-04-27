@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Cibertec.Models.ViewModels
 {
-    public class CreateUserVM
+    public class UserVM
     {
         public int Id { get; set; }
         [Required]

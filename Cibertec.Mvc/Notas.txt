@@ -5,3 +5,6 @@ Agregar Google Incognito para Ejecutar:
 	Ruta del navegador
 	--incognito
 	Nombre Deseado
+
+26/04/18
+Install-Package Microsoft.jQuery.Unobtrusive.Ajax

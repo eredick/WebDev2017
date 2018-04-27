@@ -14,6 +14,9 @@ namespace Cibertec.Mvc
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jqueryval-ajax").Include(
+                        "~/Scripts/jquery.unobtrusive-ajax*"));
+
             //bundles.Add(new ScriptBundle("~/bundlePrueba/jquery").Include(
             //            "~/Scripts/jquery.validate.js",
             //            "~/Scripts/jquery.validate.unobtrusive.js"));

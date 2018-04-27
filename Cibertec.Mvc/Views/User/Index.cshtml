@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="#" data-toggle="modal" data-target="#modal-container" class="btn btn-primary btn-xs" onclick="getModalContent('@Url.Action("Create", "User")', 'Registrar nuevo usuario')">Nuevo Usuario</a>
 </p>
 <table class="table">
     <tr>
@@ -29,45 +29,44 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Password)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Roles)
-        </td>
-        <td>
-            <a class="btn btn-link" href="#" data-toggle="modal" data-target="#modal-container">
-                <span class="glyphicon glyphicon-edit"></span> Editar
-            </a>
-            <a class="btn btn-link">
-                <span class="glyphicon glyphicon-trash"></span> Eliminar
-            </a>
-            @*@Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-        @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-        @Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Roles)
+            </td>
+            <td>
+                <a class="btn btn-link" href="#" data-toggle="modal" data-target="#modal-container" onclick="getModalContent('@Url.Action("Edit", "User", new { id = item.Id })', 'Editar usuario')">
+                    <span class="glyphicon glyphicon-edit"></span> Editar
+                </a>
+                <a class="btn btn-link">
+                    <span class="glyphicon glyphicon-trash"></span> Eliminar
+                </a>
+                @*@Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
+            </td>
+        </tr>
+    }
 
 </table>
 
 @Modal.GetModal("User")
 
 @section scripts{
-    <script>
-        $('#modal-container').on('show.bs.modal', function () {
-            alert('12345');
-        })
-    </script>
-    }
+    <script src="~/app/cibertec.js" type="text/javascript"></script>
+    @Scripts.Render("~/bundles/jqueryval");
+    @Scripts.Render("~/bundles/jqueryval-ajax");
+}

@@ -1,4 +1,5 @@
-﻿using Cibertec.UnitOfWork;
+﻿using Cibertec.Mvc.ActionFilters;
+using Cibertec.UnitOfWork;
 using log4net;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Web.Mvc;
 
 namespace Cibertec.Mvc.Controllers
 {
-    [Authorize]
+    [CustomAuthorize]
     public class BaseController : Controller
     {
         protected readonly IUnitOfWork _unit;

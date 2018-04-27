@@ -14,6 +14,7 @@ using System.Web.Mvc;
 namespace Cibertec.Mvc.Controllers
 {
     [ErrorActionFilter]
+    [CustomAuthorize]
     public class CustomerController : BaseController
     {
         public CustomerController(IUnitOfWork unit, ILog log) : base(log,unit)
