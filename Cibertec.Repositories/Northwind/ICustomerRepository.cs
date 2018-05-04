@@ -12,5 +12,7 @@ namespace Cibertec.Repositories.Northwind
         bool UpdateContactName(Customer entity);
         int InsertCustomer(Customer entity);
         Customer GetByStringId(string id);
+        int Count();//total count
+        IEnumerable<Customer> PagedList(int startRow, int endRow);
     }
 }

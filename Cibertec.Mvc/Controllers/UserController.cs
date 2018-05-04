@@ -48,7 +48,8 @@ namespace Cibertec.Mvc.Controllers
                 Roles = model.Roles
             };
             _unit.Users.Insert(newUser);
-            return new HttpStatusCodeResult(HttpStatusCode.OK);
+            //return new HttpStatusCodeResult(HttpStatusCode.OK);
+            return Json(new { option = "create" });
         }
 
         [CustomAuthorize(Roles = "Admin")]
@@ -80,7 +81,33 @@ namespace Cibertec.Mvc.Controllers
                 Roles = model.Roles
             };
             _unit.Users.Update(updateUser);
-            return new HttpStatusCodeResult(HttpStatusCode.OK);
+            //return new HttpStatusCodeResult(HttpStatusCode.OK);
+            return Json(new { option = "edit" });
+        }
+
+        [CustomAuthorize(Roles = "Admin")]
+        public ActionResult Delete(int id)
+        {
+            var user = _unit.Users.GetById(id);
+            var userVM = new UserVM
+            {
+                Id = user.Id,
+                Email = user.Email,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Password = user.Password,
+                Roles = user.Roles
+            };
+            return PartialView("_Delete", userVM);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            var deleteUser = new User{ Id = id };
+            _unit.Users.Delete(deleteUser);
+            //return new HttpStatusCodeResult(HttpStatusCode.OK);
+            return Json(new { option = "delete" });
         }
     }
 }

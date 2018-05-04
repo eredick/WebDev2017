@@ -31,5 +31,12 @@ namespace Cibertec.Tests
             var result = _unit.Customers.GetByStringId("ALFKI");
             Assert.AreEqual("Alfreds Futterkiste", result.CompanyName);
         }
+
+        [TestMethod]
+        public void Count()
+        {
+            var result = _unit.Customers.Count();
+            Assert.AreEqual(92, result);
+        }
     }
 }

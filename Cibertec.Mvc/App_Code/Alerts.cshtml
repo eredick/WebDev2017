@@ -1,0 +1,14 @@
+﻿@helper Alerta(string id, string action, string type, string message)
+    {
+        <div id="@id" class="alert alert-@type alert-dismissible hidden" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>@action</strong> @message
+        </div>
+}
+
+@helper ImprimirAlertas()
+    {
+        @Alerta("insertAlert", "Nuevo Usuario", "success", "Se insertó el usuario correctamente.")
+        @Alerta("editAlert", "Editar Usuario", "success", "Se editó el usuario correctamente.")
+        @Alerta("deleteAlert", "Eliminar Usuario", "success", "Se eliminó el usuario correctamente.")
+}

@@ -64,5 +64,27 @@ namespace Cibertec.Repositories.Dapper.Northwind
             //    return customer;
             //}
         }
+
+        public int Count()
+        {
+            var sql = "select count(1) from Customers";
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                return connection.ExecuteScalar<int>(sql);
+            }
+        }
+
+        public IEnumerable<Customer> PagedList(int startRow, int endRow)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var parameters = new DynamicParameters();
+                parameters.Add("@startRow", startRow);
+                parameters.Add("@endRow", endRow);
+
+                var lCustomer = connection.Query<Customer>("dbo.CustomerPagedList", parameters, commandType: System.Data.CommandType.StoredProcedure);
+                return lCustomer;
+            }
+        }
     }
 }

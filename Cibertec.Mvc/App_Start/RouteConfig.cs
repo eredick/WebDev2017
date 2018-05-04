@@ -12,7 +12,7 @@ namespace Cibertec.Mvc
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+            routes.MapMvcAttributeRoutes();//sirve para agregar el atributo en los controllers
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

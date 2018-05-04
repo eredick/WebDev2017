@@ -8,3 +8,6 @@ Agregar Google Incognito para Ejecutar:
 
 26/04/18
 Install-Package Microsoft.jQuery.Unobtrusive.Ajax
+
+paginaWeb para paginado:
+	http://botmonster.com/jquery-bootpag

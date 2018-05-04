@@ -5,12 +5,32 @@
     });
 }
 
-function success() {
-    closeModal();
+function success(data) {
+    closeModal(data.option);
 }
 
-function closeModal() {
+function closeModal(option) {
     $("button[data-dismiss='modal']").click();
     $(".modal-body").html("");
-    $(".modal-body").html("");
+    $(".modal-title").html("");
+    alertConfig(option);
+}
+
+function alertConfig(option) {
+    $('#insertAlert').addClass("hidden");
+    $('#editAlert').addClass("hidden");
+    $('#deleteAlert').addClass("hidden");
+
+    switch (option) {
+        case "create":
+            $('#insertAlert').removeClass("hidden");
+            break;
+        case "edit":
+            $('#editAlert').removeClass("hidden");
+            break;
+        case "delete":
+            $('#deleteAlert').removeClass("hidden");
+            break;
+        default:
+    }
 }

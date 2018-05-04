@@ -1,6 +1,6 @@
 ﻿@model Cibertec.Models.ViewModels.UserVM
 
-@using (Ajax.BeginForm("Edit", "User", null, new AjaxOptions { HttpMethod = "POST", OnSuccess = "success();" }, new { id = "editForm" }))
+@using (Ajax.BeginForm("Edit", "User", null, new AjaxOptions { HttpMethod = "POST", OnSuccess = "success" }, new { id = "editForm" }))
 {
     @Html.AntiForgeryToken()
 

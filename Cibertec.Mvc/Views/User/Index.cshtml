@@ -6,6 +6,8 @@
 
 <h2>Index</h2>
 
+@Alerts.ImprimirAlertas()
+
 <p>
     <a href="#" data-toggle="modal" data-target="#modal-container" class="btn btn-primary btn-xs" onclick="getModalContent('@Url.Action("Create", "User")', 'Registrar nuevo usuario')">Nuevo Usuario</a>
 </p>
@@ -48,10 +50,10 @@
                 @Html.DisplayFor(modelItem => item.Roles)
             </td>
             <td>
-                <a class="btn btn-link" href="#" data-toggle="modal" data-target="#modal-container" onclick="getModalContent('@Url.Action("Edit", "User", new { id = item.Id })', 'Editar usuario')">
+                <a class="btn btn-warning btn-xs" href="#" data-toggle="modal" data-target="#modal-container" onclick="getModalContent('@Url.Action("Edit", "User", new { id = item.Id })', 'Editar usuario')">
                     <span class="glyphicon glyphicon-edit"></span> Editar
                 </a>
-                <a class="btn btn-link">
+                <a class="btn btn-danger btn-xs" href="#" data-toggle="modal" data-target="#modal-container" onclick="getModalContent('@Url.Action("Delete","User",new { id=item.Id})', 'Eliminar usuario')">
                     <span class="glyphicon glyphicon-trash"></span> Eliminar
                 </a>
                 @*@Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

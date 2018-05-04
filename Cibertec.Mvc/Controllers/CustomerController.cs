@@ -15,10 +15,11 @@ namespace Cibertec.Mvc.Controllers
 {
     [ErrorActionFilter]
     [CustomAuthorize]
+    [RoutePrefix("Customer")]
     public class CustomerController : BaseController
     {
-        public CustomerController(IUnitOfWork unit, ILog log) : base(log,unit)
-        {}
+        public CustomerController(IUnitOfWork unit, ILog log) : base(log, unit)
+        { }
 
         public ActionResult Detail(string id)
         {
@@ -87,6 +88,23 @@ namespace Cibertec.Mvc.Controllers
             var elimino = _unit.Customers.Delete(customer);
             if (elimino) return RedirectToAction("Index");
             return View(customer);
+        }
+
+        [HttpGet]
+        [Route("Count/{rows:int}")]
+        public int Count(int rows)
+        {
+            var total = _unit.Customers.Count();
+            return total % rows != 0 ? (total / rows) + 1 : (total / rows);
+        }
+
+        [Route("List/{page:int}/{rows:int}")]
+        public PartialViewResult List(int page, int rows)
+        {
+            if (page <= 0 || rows <= 0) return PartialView("_List", new List<Customer>());
+            var start = ((page - 1) * rows) + 1;
+            var end = page * rows;
+            return PartialView("_List", _unit.Customers.PagedList(start, end));
         }
     }
 }

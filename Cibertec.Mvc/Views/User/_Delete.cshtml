@@ -1,0 +1,48 @@
+﻿@model Cibertec.Models.ViewModels.UserVM
+
+
+<h3>¿Usted está seguro de eliminar el usuario?</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        
+    </dl>
+
+    @using (Ajax.BeginForm("Delete", "User", null, new AjaxOptions { HttpMethod = "POST", OnSuccess = "success" }, new { id = "DeleteForm" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            @*<input type="submit" value="Delete" class="btn btn-default" /> |*@
+            <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Eliminar</button>
+        </div>
+    }
+</div>
+
+<script>
+    $(function () {
+        $.validator.unobtrusive.parse("#deleteForm");
+    });
+</script>
