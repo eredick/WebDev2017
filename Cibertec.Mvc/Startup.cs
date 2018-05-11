@@ -13,6 +13,8 @@ namespace Cibertec.Mvc
     {
         public void Configuration(IAppBuilder app)
         {
+            app.MapSignalR();
+
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = "ApplicationCookie",
