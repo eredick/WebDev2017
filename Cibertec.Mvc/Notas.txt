@@ -11,3 +11,5 @@ Install-Package Microsoft.jQuery.Unobtrusive.Ajax
 
 paginaWeb para paginado:
 	http://botmonster.com/jquery-bootpag
+
+para hacer pruebas REST-API instalar POSTMAN!

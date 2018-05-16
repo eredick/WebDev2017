@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cibertec.UnitOfWork", "Cibe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cibertec.Tests", "Cibertec.Tests\Cibertec.Tests.csproj", "{C214B7AB-0FE2-4052-9978-912055350B29}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cibertec.WebApi", "Cibertec.WebApi\Cibertec.WebApi.csproj", "{DDBFE6A7-BC9E-4E89-B401-DCEA6BFD067A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{C214B7AB-0FE2-4052-9978-912055350B29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C214B7AB-0FE2-4052-9978-912055350B29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C214B7AB-0FE2-4052-9978-912055350B29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDBFE6A7-BC9E-4E89-B401-DCEA6BFD067A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDBFE6A7-BC9E-4E89-B401-DCEA6BFD067A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDBFE6A7-BC9E-4E89-B401-DCEA6BFD067A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDBFE6A7-BC9E-4E89-B401-DCEA6BFD067A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

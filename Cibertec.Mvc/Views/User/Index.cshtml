@@ -50,7 +50,7 @@
                 @Html.DisplayFor(modelItem => item.Roles)
             </td>
             <td>
-                <a class="btn btn-warning btn-xs" href="#" data-toggle="modal" data-target="#modal-container" onclick="getModalContent('@Url.Action("Edit", "User", new { id = item.Id })', 'Editar usuario')">
+                <a class="btn btn-warning btn-xs" href="#" data-toggle="modal" data-target="#modal-container" onclick="getModalContent('@Url.Action("Edit", "User", new { id = item.Id })', 'Editar usuario', @item.Id)">
                     <span class="glyphicon glyphicon-edit"></span> Editar
                 </a>
                 <a class="btn btn-danger btn-xs" href="#" data-toggle="modal" data-target="#modal-container" onclick="getModalContent('@Url.Action("Delete","User",new { id=item.Id})', 'Eliminar usuario')">
@@ -76,11 +76,14 @@
 
         $(function () {
             var hub = $.connection.userHub;
-            hub.on("onEditValidate", function (userName) {
-                $('#userEditAlert').removeClass("hidden");
+            hub.on("userStatus", function (data) {
+                ids = data.ArrayIds;
+                console.log(ids);
+                configurarMensajeEnUso(data.TriggerId);
             });
             $.connection.hub.start().done(function () {
-                hub.server.editValidate();
+                connectionId = hub.connection.id;
+                console.log("Cnx ID: " + connectionId);
             });
         });
 

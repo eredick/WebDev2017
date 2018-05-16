@@ -1,11 +1,10 @@
 ﻿@model Cibertec.Models.ViewModels.UserVM
 
+@Alerts.EditarUsuario()
 @using (Ajax.BeginForm("Edit", "User", null, new AjaxOptions { HttpMethod = "POST", OnSuccess = "success" }, new { id = "editForm" }))
 {
     @Html.AntiForgeryToken()
-
-    @Alerts.EditarUsuario()
-
+    
     <div class="form-horizontal">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
@@ -61,5 +60,9 @@
 <script>
     $(function () {
         $.validator.unobtrusive.parse("#editForm");
+        configurarMensajeEnUso(@Model.Id);
+        $("#modal-container").on('hidden.bs.modal', function (e) {
+            removeUserId(@Model.Id);
+        });
     });
 </script>
