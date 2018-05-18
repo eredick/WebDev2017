@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Cibertec.WebApi;
 using Microsoft.Owin;
 using Owin;
 
@@ -14,6 +15,8 @@ namespace Cibertec.WebApi
         {
             var config = new HttpConfiguration();
             RouteConfig.Register(config);
+            DIConfig.ConfigureInjector(config);
+            TokenConfig.ConfigureOAuth(app, config);
             app.UseWebApi(config);//Clave para que funcione el WebApi
         }
     }

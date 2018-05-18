@@ -13,3 +13,5 @@ paginaWeb para paginado:
 	http://botmonster.com/jquery-bootpag
 
 para hacer pruebas REST-API instalar POSTMAN!
+
+swashbuckle - paquete para usar swagger(especificacion REST algo asi como el wcl)
