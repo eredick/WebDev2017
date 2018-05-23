@@ -58,5 +58,14 @@ namespace Cibertec.WebApi.Controllers
             var result = _unit.Customers.Delete(customer);
             return Ok(new { delete = result });
         }
+
+        [HttpGet]
+        [Route("list/{page}/{rows}")]
+        public IHttpActionResult GetCount(int page, int rows)
+        {
+            var start = ((page - 1) * rows) - 1;
+            var end = page * rows;
+            return Ok(_unit.Customers.PagedList(start, end));
+        }
     }
 }

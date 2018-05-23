@@ -46,6 +46,7 @@ namespace Cibertec.WebApi
                     if (user == null)
                     {
                         context.SetError("invalid_grant", "Credenciales inválidas");
+                        return;
                     }
                     var identity = new ClaimsIdentity(context.Options.AuthenticationType);
                     identity.AddClaim(new Claim("sub", context.UserName));

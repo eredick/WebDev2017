@@ -15,3 +15,17 @@ paginaWeb para paginado:
 para hacer pruebas REST-API instalar POSTMAN!
 
 swashbuckle - paquete para usar swagger(especificacion REST algo asi como el wcl)
+
+Activar compresion para WEB-API
+Install-Package Microsoft.AspNet.WebApi.Extensions.Compression.Server.Owin
+
+REACT
+*****
+VISUAL STUDIO CODE
+verificar si esta instalado nodejs:
+C:\Users\VS-MJ>node -v
+v8.11.2
+
+C:\Users\VS-MJ>npm -v
+5.6.0
+
